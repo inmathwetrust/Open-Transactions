@@ -31,6 +31,7 @@ Dependencies (installed):
 
 3. OpenSSL 1.0.1: Download and follow instructions for both: x64 and 86x.
     http://slproweb.com/products/Win32OpenSSL.html
+    Install with default settings to the default locations.
 
 4. Java (Optional, not recommended unless needed):
     http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
@@ -60,6 +61,11 @@ Note:
     run: ..\vsprojects\extract_includes.bat
     move folder: ..\vsprojects\include to ..\include
 
+<apoliakov>	 For Protobuffer I already met this problem
+<apoliakov>	 Fix is here https://code.google.com/p/protobuf/issues/detail?id=531
+<apoliakov>	 Just add #include <algorithm> in common.h
+
+
 2. ZeroMQ (latest git 2.x version)
     using the command prompt: open up ..\dev\ folder.
 
@@ -73,6 +79,14 @@ $ git clone https://github.com/ChaiScript/ChaiScript.git
 $ cd ChaiScript
 $ git checkout ChaiScript_5_0_CPP_11
 $ git clean -fxd
+
+<+da2ce7>	 apoliakov: fixed it: https://github.com/ChaiScript/ChaiScript/pull/99
+<+da2ce7>	 um... you need to go:
+<+da2ce7>	 (in the chaiscript dir)
+<+da2ce7>	 git remote add da2ce7 https://github.com/da2ce7/ChaiScript.git
+<+da2ce7>	 git fetch --all
+<+da2ce7>	 git merge --ff-only da2ce7/master
+<+da2ce7>	 :) then recompile.
 
 
 Note:
@@ -110,7 +124,48 @@ the output is in the directory:
 ..\lib\..
 
 
+## Running OT ##
 
+1. Running OT for the first time.
+
+Create folders and config files on first run:
+
+a. In Visual Studio open ‘ot Property Pages’ and select the debugging tab.
+
+Select Configuration: All Configurations.
+Select Platform: All Platforms.
+
+Set: Command Arguments: “scripts\opentxs”
+     Working Directory: “$(SolutionDir)..\”
+
+
+Apply Changes, and set ’ot’ project as the startup project.
+
+b. Press the F5 or select ‘start debugging’ to start OT.
+
+## When you load up the first time it will not load. ##
+
+
+2. Setting the script directory to your development folder:
+
+a. In the file explorer open up you AppData/Roaming folder.
+b. Navigate to the newly created ‘OpenTransactions’ folder.
+c. Open the ‘ot_init.cfg’ in WordPad
+d. Under [paths] change:
+     scripts_is_relative = false
+     scripts = Full path to:  ..\dev\Open-Transactions\scripts\ot
+
+^^ replace with the actual full path…
+
+3.  Now you should be fine to run OT.
+
+To run ‘ot’ from the console, run:
+
+$ lib\Win32\Debug\ot scripts\opentxs
+
+If OT ever doesn’t exit cleanly you will need to delete the pid file.
+ 
+  
 
 ## Making Windows Installers ##
 
