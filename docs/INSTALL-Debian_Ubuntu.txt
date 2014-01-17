@@ -126,7 +126,7 @@ $ git clone git://github.com/ChaiScript/ChaiScript.git
 
 # build chaiscript
 $ cd ChaiScript
-$ git reset —hard ChaiScript_5_0_CPP_11
+$ git checkout ChaiScript_5_0_CPP_11
 $ git clean -fxd
 $ cmake . -DCMAKE_INSTALL_PREFIX=$HOME/.local
 $ make

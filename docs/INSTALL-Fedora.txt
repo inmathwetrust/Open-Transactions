@@ -84,7 +84,7 @@ $ export PKG_CONFIG_PATH=$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH
 
 $ git clone git://github.com/ChaiScript/ChaiScript.git
 $ cd ChaiScript
-$ git reset —hard ChaiScript_5_0_CPP_11
+$ git checkout ChaiScript_5_0_CPP_11
 $ git clean -fxd
 $ cmake . -DCMAKE_INSTALL_PREFIX=$HOME/.local
 $ make
