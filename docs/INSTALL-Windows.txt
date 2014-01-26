@@ -80,14 +80,6 @@ $ cd ChaiScript
 $ git checkout ChaiScript_5_0_CPP_11
 $ git clean -fxd
 
-<+da2ce7>	 apoliakov: fixed it: https://github.com/ChaiScript/ChaiScript/pull/99
-<+da2ce7>	 um... you need to go:
-<+da2ce7>	 (in the chaiscript dir)
-<+da2ce7>	 git remote add da2ce7 https://github.com/da2ce7/ChaiScript.git
-<+da2ce7>	 git fetch --all
-<+da2ce7>	 git merge --ff-only da2ce7/master
-<+da2ce7>	 :) then recompile.
-
 
 Note:
  How to ‘install’ these dependancies.
